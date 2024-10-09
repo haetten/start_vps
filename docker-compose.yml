@@ -2,7 +2,7 @@ services:
   postgres:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: postgres/Dockerfile
     container_name: postgres_db
     ports:
       - 5432:5432
@@ -12,7 +12,7 @@ services:
     image: redmine
     restart: always
     ports:
-      - 8080:8100
+      - 8080:3000
     env_file:
       - .env
 volumes:
