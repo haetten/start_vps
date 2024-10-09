@@ -8,6 +8,13 @@ services:
       - 5432:5432
     env_file:
       - ../.env
+  redmine:
+    image: redmine
+    restart: always
+    ports:
+      - 8080:8100
+    env_file:
+      - ../.env
 volumes:
   postgres_data:
     driver: local
