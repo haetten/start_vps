@@ -7,14 +7,16 @@ services:
     ports:
       - 5432:5432
     env_file:
-      - .env
+      - ../.env
   redmine:
     image: redmine
     restart: always
     ports:
-      - 8080:8100
-    env_file:
-      - .env
+      - 8080:3000
+    environment:
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_POSTGRES: ${POSTGRES_HOST}
+      REDMINE_DB_PASSWORD: ${POSTGRES_PASSWORD}
 volumes:
   postgres_data:
     driver: local
